@@ -1,21 +1,12 @@
-angular.module('alurapic').controller('FotosController', function($scope){
+angular.module('alurapic').controller('FotosController', function($scope, $http){
     
-    $scope.fotos = [
-            
-        { //injetando dinamicamente em scope um objeto foto
-            titulo: 'Leão 1',
-            url: 'http://www.fundosanimais.com/Minis/leoes.jpg'
-        },
-        { //injetando dinamicamente em scope um objeto foto
-            titulo: 'Leão 2',
-            url: 'http://www.fundosanimais.com/Minis/leoes.jpg'
-        },
-        { //injetando dinamicamente em scope um objeto foto
-            titulo: 'Leão 3',
-            url: 'http://www.fundosanimais.com/Minis/leoes.jpg'
-        },
-        
-        
-        
-    ];
+    $scope.fotos = [];
+    
+    $http.get('v1/fotos')
+            .success(function(fotos){
+                $scope.fotos = fotos;
+            })
+            .error(function(erro){
+                console.log(erro);
+            })
 });
