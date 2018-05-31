@@ -1,1 +1,1 @@
-angular.module('alurapic', ['minhasDiretivas']) //o modulo principal depende de minhasDiretivas
+angular.module('alurapic', ['minhasDiretivas', 'ngAnimate']); //o modulo principal depende de minhasDiretivas
