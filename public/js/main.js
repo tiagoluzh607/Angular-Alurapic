@@ -1,1 +1,1 @@
-angular.module('alurapic', [])
+angular.module('alurapic', ['minhasDiretivas']) //o modulo principal depende de minhasDiretivas
