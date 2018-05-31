@@ -16,11 +16,22 @@
             <div class="jumbotron">
                 <h1 class="text-center">Alurapic</h1>
             </div>
-            <div ng-repeat="foto in fotos" class="panel panel-default">
-                <meu-painel titulo="{{foto.titulo}}">
-                    <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}">
-                </meu-painel>      
-            </div>   <!-- fimdo panel -->  
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+                        <input ng-model="filtro" class="form-control" placeholder="filtrar"><!-- ng-model é bidirecional se alterar o valor aqui altera no controller -->
+                    </form>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div ng-repeat="foto in fotos | filter: filtro" class="panel panel-default col-md-2">
+                    <meu-painel titulo="{{foto.titulo}}">
+                        <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}">
+                    </meu-painel>      
+                </div>   <!-- fimdo panel -->  
+            </div>
         </div> <!-- fim container -->        
     </body>
 </html>
