@@ -10,7 +10,7 @@ angular.module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute']) //o modu
                 templateUrl: 'partials/foto.html'
             });
             
-            
+            //Rota padrão caso for qualquer outra coisa direciona para /fotos
             $routeProvider.otherwise({ redirectTo: '/fotos'});
             
             

@@ -1,6 +1,7 @@
 {
     "elements": {
         "meu-painel": {},
+        "minha-foto": {},
         "ng-view": {}
     },
     "attributes": {}
