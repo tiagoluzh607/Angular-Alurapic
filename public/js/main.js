@@ -7,7 +7,8 @@ angular.module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute']) //o modu
             });
             
             $routeProvider.when('/fotos/new', { //deve ser acessado asim /#/fotos/new
-                templateUrl: 'partials/foto.html'
+                templateUrl: 'partials/foto.html',
+                controller: 'FotoController'
             });
             
             //Rota padrão caso for qualquer outra coisa direciona para /fotos
