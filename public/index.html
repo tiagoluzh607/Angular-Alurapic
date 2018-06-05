@@ -10,33 +10,13 @@
         <script src="js/lib/angular.min.js"></script>
         <script src="js/main.js"></script>
         <script src="js/lib/angular-animate.min.js"></script>
+        <script src="js/lib/angular-route.min.js"></script>
         <script src="js/controllers/fotos-controller.js"></script>
         <script src="js/directives/minhas-diretivas.js"></script>
     </head>
-    <body ng-controller="FotosController">
+    <body>
         <div class="container">
-            <div class="jumbotron">
-                <h1 class="text-center">Alurapic</h1>
-            </div>
-            
-            <div class="row">
-                <div class="col-md-12">
-                    <form>
-                        <input ng-model="filtro" ng-model-options="{debounce: 500}" 
-                               class="form-control" placeholder="filtrar"><!-- ng-model é bidirecional se alterar o valor aqui altera no controller, ng--model-options debounce é para ele atualizar o valor com um delay de 500 milisegundos -->
-                    </form>
-                </div>
-            </div>
-            
-            <div class="row">
-                
-                    <meu-painel ng-repeat="foto in fotos | filter: filtro"
-                                titulo="{{foto.titulo}}" 
-                                class="col-md-2 painel-animado">
-                        <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}">
-                    </meu-painel>      
-                  <!-- fimdo panel -->  
-            </div>
+            <ng-view></ng-view>
         </div> <!-- fim container -->        
     </body>
 </html>

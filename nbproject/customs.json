@@ -1,6 +1,7 @@
 {
     "elements": {
-        "meu-painel": {}
+        "meu-painel": {},
+        "ng-view": {}
     },
     "attributes": {}
 }
