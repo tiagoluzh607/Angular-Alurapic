@@ -11,6 +11,11 @@ angular.module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute']) //o modu
                 controller: 'FotoController'
             });
             
+            $routeProvider.when('/fotos/edit/:fotoId', { //deve ser acessado asim /#/fotos/edit/1
+                templateUrl: 'partials/foto.html',
+                controller: 'FotoController'
+            });
+            
             //Rota padrão caso for qualquer outra coisa direciona para /fotos
             $routeProvider.otherwise({ redirectTo: '/fotos'});
             
