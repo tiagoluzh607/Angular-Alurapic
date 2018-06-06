@@ -2,7 +2,8 @@
     "elements": {
         "meu-painel": {},
         "minha-foto": {},
-        "ng-view": {}
+        "ng-view": {},
+        "meu-botao-perigo": {}
     },
     "attributes": {}
 }

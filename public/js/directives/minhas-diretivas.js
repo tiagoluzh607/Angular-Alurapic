@@ -33,4 +33,18 @@ angular.module('minhasDiretivas', [])
             
             ddo.templateUrl = 'js/directives/minha-foto.html';
             return ddo;
+        })
+        .directive('meuBotaoPerigo', function(){ //O angular transforma meuPainel para mau-painel, quando for usar usar meu-painel
+            
+            var ddo = {}; //uma diretiva sempre retorna um ddo
+    
+            ddo.restric = "E"; //Poderemos somente como Element: <meu-painel></meu-painel>
+            
+            ddo.scope = {
+                nome: '@nome', // diz podemos inserir o atributo titulo para o painel: <meu-painel titulo="Teste"></meu-painel>, 
+                acao: '&acao' // o @ é passado como cópia de uma string porem o & passa como uma expressao
+            };
+            
+            ddo.templateUrl = 'js/directives/meu-botao-perigo.html';
+            return ddo;
         });

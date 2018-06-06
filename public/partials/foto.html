@@ -31,6 +31,17 @@
             </textarea>
         </div>
 
+        <div ng-controller="GruposController" class="form-group" >
+            <label>Grupo</label>
+            <select ng-model="foto.grupo" name="grupo" class="form-control" required 
+                    ng-options="grupo._id as (grupo.nome | uppercase) for grupo in grupos" ><!-- grupo._id é o valor do value no option, as grupo.nome quer dizer que será colocado o nome do grupo como label do option, grupos vem do controller -->
+                <option value="">Selecione Grupo</option>
+            </select>           
+            <span ng-show="formulario.$submitted && formulario.grupo.$error.required" class="form-control alert-danger">
+                Grupo Obrigatório
+            </span>
+        </div>
+        
         <button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
             Salvar
         </button>
