@@ -1,4 +1,4 @@
-angular.module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute']) //o modulo principal depende de minhasDiretivas
+angular.module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute', 'ngResource']) //o modulo principal depende de minhasDiretivas
         .config(function($routeProvider){ // injeção do routeProvider atraves da dependencia ngRoute
             
             $routeProvider.when('/fotos', { //deve ser acessado asim /#/fotos
