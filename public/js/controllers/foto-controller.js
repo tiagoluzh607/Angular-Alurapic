@@ -4,17 +4,11 @@
  * and open the template in the editor.
  */
 
-angular.module('alurapic').controller('FotoController', function($scope, $http, $resource, $routeParams){
+angular.module('alurapic').controller('FotoController', function($scope, $http, recursoFoto, $routeParams){ //recursoFoto vem injetado pelo meus servicos
     
     $scope.foto = {};
     $scope.mensagem = '';
     
-    
-    var recursoFoto = $resource('/v1/fotos/:fotoId', null, {
-        update : {
-            method: 'PUT'
-        }
-    });
     
     if($routeParams.fotoId){ // fotoId deve ter o mesmo nome do campo na config de rotas no main.js -  se na url vir um id para editar
         

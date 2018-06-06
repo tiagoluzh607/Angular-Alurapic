@@ -1,12 +1,10 @@
-angular.module('alurapic').controller('FotosController', function($scope, $http, $resource){
+angular.module('alurapic').controller('FotosController', function($scope, $http, recursoFoto){ //recursoFoto vem injetado pelo meus servicos
     
     
     $scope.fotos = [];
     $scope.filtro = '';
     $scope.mensagem = '';
     
-    
-    var recursoFoto = $resource('/v1/fotos/:fotoId');
     
     recursoFoto.query(function(fotos){ // query é inteligete o sufuciente para chamar o get em /v1/fotos
         $scope.fotos = fotos;
