@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-angular.module('alurapic').controller('FotoController', function($scope, $http, recursoFoto, $routeParams){ //recursoFoto vem injetado pelo meus servicos
+angular.module('alurapic').controller('FotoController', function($scope, $http, cadastroDeFotos,recursoFoto, $routeParams){ //recursoFoto e cadastroDeFotos vem injetado pelo meus servicos
     
     $scope.foto = {};
     $scope.mensagem = '';
@@ -35,44 +35,16 @@ angular.module('alurapic').controller('FotoController', function($scope, $http, 
     $scope.submeter = function(){
         
         if($scope.formulario.$valid){ // somente se o formulario for valido
-              
-            if($scope.foto._id){ //se a imagem tem um id estou editando
-                
-                
-                recursoFoto.update({fotoId : $scope.foto._id}, $scope.foto, function(){ //faz um put em v1/fotos
-                    $scope.mensagem = 'foto Editada com sucesso';
-                }, function(erro){
-                    $scope.mensagem = 'Não foi possivel Editar a Foto';
-                });
-                
-                /* mesma coisa via $http
-                $http.put('v1/fotos/' + $scope.foto._id, $scope.foto)
-                        .success(function(){
-                            $scope.mensagem = 'foto Editada com sucesso';
-                        })
-                        .error(function(erro){
-                            $scope.mensagem = 'Não foi possivel Editar a Foto';
-                        });
-                */
-            }else{
-                
-                 recursoFoto.save($scope.foto, function() { //faz um post em v1/fotos
-                        $scope.mensagem = 'foto incluida com sucesso';
-                    }, function(erro) {
-                        console.log(erro);
-                        $scope.mensagem = 'Não foi possível incluir a foto';
-                    });
-                
-                /* mesma coisa utilizando $http
-                $http.post('v1/fotos', $scope.foto)
-                        .success(function(){
-                            $scope.mensagem = 'foto incluida com sucesso';
-                        })
-                        .error(function(erro){
-                            $scope.mensagem = 'Não foi possível incluir a foto';
-                        });
-                */
-            }
+           
+            cadastroDeFotos.cadastrar($scope.foto) //chamando o serviço personalizado que cadastra a foto
+            .then(function(dados){
+                $scope.mensagem = dados.mensagem;
+                if(dados.inclusao) $scope.foto = {};
+            })
+            .catch(function(dados){
+                $scope.mensagem = dados.mensagem;
+            });
+           
         }
     };
         
