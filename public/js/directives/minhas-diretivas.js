@@ -47,4 +47,29 @@ angular.module('minhasDiretivas', [])
             
             ddo.templateUrl = 'js/directives/meu-botao-perigo.html';
             return ddo;
+        })
+        .directive('meuFocus', function(){ //O angular transforma meuPainel para mau-painel, quando for usar usar meu-painel
+            
+            var ddo = {}; //uma diretiva sempre retorna um ddo
+    
+            ddo.restric = "A"; //Poderemos somente como Element: <meu-painel></meu-painel>
+            
+            ddo.scope = {
+                focado : "=focado" // = é para fazer uma comunicao entre a diretiva e controller as duas vao alterar a propriedade
+            };
+            
+            ddo.link = function(scope, element){ // na faze de link colocamos um escutador retornando o scope(DA DIRETIVA) e o elemento enque a diretiva foi inserida
+                scope.$watch('focado', function(){ // registra um escutador para a propriedade focado
+              
+                    if(scope.focado){ //Se a propriedade focado for true
+                        console.log(element);
+                        element[0].focus();
+                        scope.focado = false; // coloca novamente para falso para quando abrir a tela de novo ele nao esteja marcado como true
+                    } 
+                });
+            };
+            
+            
+            //ddo.templateUrl = 'js/directives/meu-botao-perigo.html';
+            return ddo;
         });
